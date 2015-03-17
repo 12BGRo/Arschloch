@@ -7,22 +7,12 @@ import java.util.ArrayList;
 
 
 public class ClientThread extends Thread {
-	/**
-	 * Der ClientThread, der mit dem jeweiligen Client kommuniziert.
-	 * Als erstes Wird der Name ausgehandelt.
-	 */
 	private boolean bereit;
 	private Spieler spieler;
 	private ArrayList<ClientThread> clients;
 	private ObjectInputStream input;
 	private ObjectOutputStream output;
 	private Socket clientSocket;
-	
-	/**
-	 * Konstruktor des ClientThreads. 
-	 * @param clients Liste mit allen anderen clients
-	 * @param clientSocket die socket zum kommunizieren
-	 */
 	
 	public ClientThread(ArrayList<ClientThread> clients, Socket clientSocket){
 		this.clients = clients;
@@ -53,13 +43,7 @@ public class ClientThread extends Thread {
 	}
 	
 	public void out(Object o){
-		try {
-			this.output.writeObject(o);
-			this.output.flush();
-		} catch (IOException e) {
-			// TODO Automatisch generierter Erfassungsblock
-			e.printStackTrace();
-		}
+		
 	}
 	
 	public void run(){
@@ -67,7 +51,7 @@ public class ClientThread extends Thread {
 		boolean gibtsSchon = false;
 		do {
 			gibtsSchon = false;
-			String name = null;
+			String name;
 			try {
 				name = input.readUTF();
 			} catch (IOException e) {
@@ -86,22 +70,9 @@ public class ClientThread extends Thread {
 				this.spieler.setName(name);
 			}
 			else{
-				this.out(new NameGibtsSchonException());
+				this.out("/newName");
 			}
 		}
 		while (gibtsSchon);
-		
-		//warten, bis das bereit-Signal kommt
-		while (!this.bereit){
-			try {
-				if (input.readObject().equals("bereit"));
-			} catch (ClassNotFoundException e) {
-				// TODO Automatisch generierter Erfassungsblock
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Automatisch generierter Erfassungsblock
-				e.printStackTrace();
-			}
-		}
 	}
 }

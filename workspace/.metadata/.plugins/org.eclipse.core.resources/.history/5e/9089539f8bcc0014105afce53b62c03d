@@ -7,22 +7,12 @@ import java.util.ArrayList;
 
 
 public class ClientThread extends Thread {
-	/**
-	 * Der ClientThread, der mit dem jeweiligen Client kommuniziert.
-	 * Als erstes Wird der Name ausgehandelt.
-	 */
 	private boolean bereit;
 	private Spieler spieler;
 	private ArrayList<ClientThread> clients;
 	private ObjectInputStream input;
 	private ObjectOutputStream output;
 	private Socket clientSocket;
-	
-	/**
-	 * Konstruktor des ClientThreads. 
-	 * @param clients Liste mit allen anderen clients
-	 * @param clientSocket die socket zum kommunizieren
-	 */
 	
 	public ClientThread(ArrayList<ClientThread> clients, Socket clientSocket){
 		this.clients = clients;
@@ -90,18 +80,5 @@ public class ClientThread extends Thread {
 			}
 		}
 		while (gibtsSchon);
-		
-		//warten, bis das bereit-Signal kommt
-		while (!this.bereit){
-			try {
-				if (input.readObject().equals("bereit"));
-			} catch (ClassNotFoundException e) {
-				// TODO Automatisch generierter Erfassungsblock
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Automatisch generierter Erfassungsblock
-				e.printStackTrace();
-			}
-		}
 	}
 }

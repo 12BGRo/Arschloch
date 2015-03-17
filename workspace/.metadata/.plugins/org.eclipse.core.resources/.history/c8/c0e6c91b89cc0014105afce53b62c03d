@@ -1,0 +1,48 @@
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.util.ArrayList;
+
+
+public class ClientThread extends Thread {
+	private boolean bereit;
+	private Spieler spieler;
+	private ArrayList<ClientThread> clients;
+	private ObjectInputStream input;
+	private ObjectOutputStream output;
+	private Socket clientSocket;
+	
+	public ClientThread(ArrayList<ClientThread> clients, Socket clientSocket){
+		this.clients = clients;
+		this.clientSocket = clientSocket;
+		try {
+			this.input = new ObjectInputStream(this.clientSocket.getInputStream());
+			this.output = new ObjectOutputStream(this.clientSocket.getOutputStream());
+		} catch (IOException e) {
+			// TODO Automatisch generierter Erfassungsblock
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Gibt zurück, ob der Spieler bereit zum Starten ist
+	 * @return true, wenn der Spieler bereit ist
+	 */
+	public boolean istBereit() {
+		return this.bereit;
+	}
+
+	/**
+	 * Gibt den Namen des Spielers, der dem Thread zugeordnet ist, zurück
+	 * @return name des Spielers
+	 */
+	public String getSpielerName(){
+		return this.spieler.getName();
+	}
+	
+	public void run(){
+		
+	}
+}

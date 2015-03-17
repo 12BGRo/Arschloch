@@ -8,8 +8,7 @@ import java.util.ArrayList;
 
 public class ClientThread extends Thread {
 	/**
-	 * Der ClientThread, der mit dem jeweiligen Client kommuniziert.
-	 * Als erstes Wird der Name ausgehandelt.
+	 * 
 	 */
 	private boolean bereit;
 	private Spieler spieler;
@@ -21,7 +20,7 @@ public class ClientThread extends Thread {
 	/**
 	 * Konstruktor des ClientThreads. 
 	 * @param clients Liste mit allen anderen clients
-	 * @param clientSocket die socket zum kommunizieren
+	 * @param clientSocket
 	 */
 	
 	public ClientThread(ArrayList<ClientThread> clients, Socket clientSocket){
