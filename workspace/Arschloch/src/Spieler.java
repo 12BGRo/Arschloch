@@ -12,23 +12,26 @@ public class Spieler {
 	
 	
 	/**
-	 * Fügt dem Spieler eine neue Handkarte hinzu, z.B. beim Austeilen
-	 * @param karte Die Karte, die hinzugefügt werden soll
+	 * Fuegt dem Spieler eine neue Handkarte hinzu, z.B. beim Austeilen
+	 * @param karte Die Karte, die hinzugefuegt werden soll
+	 * @return 
 	 */
-	public addKarte(Spielkarte karte){
+	public void addKarte(Spielkarte karte){
 		this.handkarten.add(karte);
 	}
 	
 	/**
 	 * soll aufgerufen werden, wenn der Spieler eine (oder mehrer) Karten aus 
 	 * seiner Hand ablegt. Die Karten werden in einem KartenContainer zusammengefasst.
-	 * Die Mathode prüft, ob der Spieler alle übergebenen Karten hat, wenn nicht, wird eine 
-	 * SpielerHatDieKarteNichtExection geworfen. Die ablegelgten Karten werden aus den handkarten gelöscht.
+	 * Die Mathode prueft, ob der Spieler alle uebergebenen Karten hat, wenn nicht, wird eine 
+	 * SpielerHatDieKarteNichtExection geworfen. Die ablegelgten Karten werden aus den handkarten geloescht.
 	 * @param karten KartenContainer mit den Karten, die ablegt werden sollen.
 	 * @return die abgelegten Karten
+	 * @throws SpielerHatDieKartenNichtException 
 	 * @exception SpielerHatDieKarteNichtException wird geworfen, wenn der Spieler die karte nicht hat
 	 */
-	public KartenContainer ablegen(KartenContainer karten){
+	
+	public KartenContainer ablegen(KartenContainer karten) throws SpielerHatDieKartenNichtException{
 		ArrayList<Spielkarte> kartenn = new ArrayList<Spielkarte>();
 		for (int i=0; i<karten.getAnzahl();i++){
 			kartenn.add(karten.getKarte(i));
@@ -41,7 +44,9 @@ public class Spieler {
 			}
 		}
 		if (!hat){
-			throw new SpielerHatDieKartenNichtException();
+			
+				throw new SpielerHatDieKartenNichtException();
+			
 		}
 		else {
 		//aus den handkarten loeschen
@@ -61,7 +66,7 @@ public class Spieler {
 	}
 	
 	/**
-	 * Gibt den aktuellen Rang des Spielers zurück.
+	 * Gibt den aktuellen Rang des Spielers zurueck.
 	 * @return Rang des Spielers
 	 */
 	public Rang getRang(){
@@ -69,7 +74,7 @@ public class Spieler {
 	}
 	
 	/**
-	 * Gibt die Anzahl der Handkarten des Spielers als int zurück.
+	 * Gibt die Anzahl der Handkarten des Spielers als int zurueck.
 	 * @return Anzahl der Handkarten
 	 */
 	public int getAnzahlHandKarten(){
@@ -77,7 +82,7 @@ public class Spieler {
 	}
 	
 	/**
-	 * Gibt den Namen des Spielers zurück
+	 * Gibt den Namen des Spielers zurueck
 	 * @return name des Spielers
 	 */
 	public String getName(){

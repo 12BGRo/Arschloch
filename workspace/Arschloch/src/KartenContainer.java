@@ -9,10 +9,10 @@ public class KartenContainer {
 	}
 	
 	/**
-	 * Fügt dem KartenContainer eine Spielkarte hinzu und überprüft, ob diese passt.
+	 * Fuegt dem KartenContainer eine Spielkarte hinzu und ueberprueft, ob diese passt.
 	 * z.B. ob wenn versucht wird, eine 7 und eine 8 zusammen abzulegen, wird eine KarteTypPasstNichtException geworfen.
-	 * @param karte Die zinzuzufügende Karte
-	 * @exception KarteTypPasstNichtException wird geworfen, wenn die übergebene karte nicht passt
+	 * @param karte Die zinzuzufuegende Karte
+	 * @exception KarteTypPasstNichtException wird geworfen, wenn die uebergebene karte nicht passt
 	 */
 	public void addKarte(Spielkarte karte) throws KarteTypPasstNichtException{
 		//ueberpruefen, ob die karte passt
@@ -29,15 +29,15 @@ public class KartenContainer {
 	}
 	
 	/**
-	 * Gibt den Wert der Karte(n) zurück
-	 * @return den Wert der Karte(n) (z.B. 7 für eine 7, 11 für einen Buben)
+	 * Gibt den Wert der Karte(n) zurueck
+	 * @return den Wert der Karte(n) (z.B. 7 fuer eine 7, 11 fuer einen Buben)
 	 */
 	public int getWert(){
 		return this.karten.get(0).getWert();
 	}
 	
 	/**
-	 * Gibt die Anzhal der Karten zurück, z.B. zwei Stück bedeutet ein Doppel
+	 * Gibt die Anzhal der Karten zurueck, z.B. zwei Stueck bedeutet ein Doppel
 	 * @return die Anzahl der Karten
 	 */
 	public int getAnzahl(){
@@ -45,7 +45,7 @@ public class KartenContainer {
 	}
 	
 	/**
-	 * Gibt eine Karte aus dem Container zurück und löscht diese aus ihm.
+	 * Gibt eine Karte aus dem Container zurueck und loescht diese aus ihm.
 	 * Wird noch nicht benutzt
 	 * @param index Die Nummer der Karte
 	 * @return

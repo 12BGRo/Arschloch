@@ -10,7 +10,7 @@ public class ClientThread extends Thread {
 	/**
 	 * Der ClientThread, der mit dem jeweiligen Client kommuniziert.
 	 * Als erstes Wird der Name ausgehandelt; Dazu schreibt der Client solange
-	 * Strings auf die socket, wie er keine NameGibtsSchonException zurück bekommt
+	 * Strings auf die socket, wie er keine NameGibtsSchonException zurueck bekommt
 	 */
 	private boolean bereit;
 	private Spieler spieler;
@@ -38,7 +38,7 @@ public class ClientThread extends Thread {
 	}
 	
 	/**
-	 * Gibt zurück, ob der Spieler bereit zum Starten ist
+	 * Gibt zurueck, ob der Spieler bereit zum Starten ist
 	 * @return true, wenn der Spieler bereit ist
 	 */
 	public boolean istBereit() {
@@ -46,7 +46,7 @@ public class ClientThread extends Thread {
 	}
 
 	/**
-	 * Gibt den Namen des Spielers, der dem Thread zugeordnet ist, zurück
+	 * Gibt den Namen des Spielers, der dem Thread zugeordnet ist, zurueck
 	 * @return name des Spielers
 	 */
 	public String getSpielerName(){

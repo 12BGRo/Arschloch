@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -10,11 +11,15 @@ public class ArschlochServer implements Runnable{
 	
 	public ArschlochServer(){
 		this.clients = new ArrayList<ClientThread>();
-		this.serverSocket = new ServerSocket(12345);
+		try {
+			this.serverSocket = new ServerSocket(12345);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
-	 * Prüft, ob genug Spieler für ein Spiel online sind (3)
+	 * Prueft, ob genug Spieler fuer ein Spiel online sind (3)
 	 * @return true, wenn es genug Spieler gibt
 	 */
 	public boolean gibtsGenugSpieler(){
@@ -22,7 +27,7 @@ public class ArschlochServer implements Runnable{
 	}
 	
 	/**
-	 * Prüft, ob alle Spieler bereit zum Starten sind
+	 * Prueft, ob alle Spieler bereit zum Starten sind
 	 * @return true, wenn alle bereit sind
 	 */
 	public boolean sindAlleBereit(){
@@ -32,11 +37,12 @@ public class ArschlochServer implements Runnable{
 				bereit = false;
 			}
 		}
+		return bereit;
 		
 	}
 	
 	/**
-	 * Prüft, ob der Server voll ist (6 Spieler)
+	 * Prueft, ob der Server voll ist (6 Spieler)
 	 * @return true, wenn 6 Spieler online sind
 	 */
 	public boolean istVoll(){
@@ -46,8 +52,14 @@ public class ArschlochServer implements Runnable{
 	@Override
 	public void run() {
 		while (!(this.sindAlleBereit() && this.gibtsGenugSpieler())){
-			Socket clientSocket = this.serverSocket.accept();
-			this.clients.add(new ClientThread());
+			Socket clientSocket = null;
+			try {
+				clientSocket = this.serverSocket.accept();
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+			this.clients.add(new ClientThread(this.clients, clientSocket));
 		}
 	}
 }
