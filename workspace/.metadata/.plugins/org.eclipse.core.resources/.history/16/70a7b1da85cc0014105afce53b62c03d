@@ -26,8 +26,9 @@ public class Stapel {
 	 * @param karten die neuen obersten Karten
 	 */
 	public void setKarten(KartenContainer karten) {
+		ArrayList<Spielkarte> alt = new ArrayList<Spielkarte>();
 		for (int i = 0; i<this.obersteKarten.getAnzahl(); i++){
-			this.ausDemSpiel.add(this.obersteKarten.getKarte(i));
+			alt.add(this.obersteKarten.getKarte(i));
 		}
 		this.obersteKarten = karten;
 	}

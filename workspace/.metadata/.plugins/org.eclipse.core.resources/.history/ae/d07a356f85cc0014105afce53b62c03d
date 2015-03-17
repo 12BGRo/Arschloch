@@ -14,7 +14,7 @@ public class KartenContainer {
 	 * @param karte Die zinzuzufügende Karte
 	 * @exception KarteTypPasstNichtException wird geworfen, wenn die übergebene karte nicht passt
 	 */
-	public void addKarte(Spielkarte karte) throws KarteTypPasstNichtException{
+	public void addKarte(Spielkarte karte){
 		//ueberpruefen, ob die karte passt
 		//zB passt keine 9 zu einer 7, eine 7 aber zu noch einer 7
 		if (this.karten.size() != 0){

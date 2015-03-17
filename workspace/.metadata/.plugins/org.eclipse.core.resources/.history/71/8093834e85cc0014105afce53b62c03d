@@ -9,7 +9,7 @@ public class Stapel {
 	
 	public Stapel(){
 		this.obersteKarten = new KartenContainer();
-		this.ausDemSpiel = new ArrayList<Spielkarte>();
+		this.ausDemSpiel = new ArrayList<Spielkarte>;
 	}
 	
 	/**
@@ -26,9 +26,6 @@ public class Stapel {
 	 * @param karten die neuen obersten Karten
 	 */
 	public void setKarten(KartenContainer karten) {
-		for (int i = 0; i<this.obersteKarten.getAnzahl(); i++){
-			this.ausDemSpiel.add(this.obersteKarten.getKarte(i));
-		}
 		this.obersteKarten = karten;
 	}
 }
