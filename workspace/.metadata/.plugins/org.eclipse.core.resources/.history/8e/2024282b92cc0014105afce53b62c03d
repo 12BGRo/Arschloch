@@ -9,8 +9,7 @@ import java.util.ArrayList;
 public class ClientThread extends Thread {
 	/**
 	 * Der ClientThread, der mit dem jeweiligen Client kommuniziert.
-	 * Als erstes Wird der Name ausgehandelt; Dazu schreibt der Client solange
-	 * Strings auf die socket, wie er keine NameGibtsSchonException zurück bekommt
+	 * Als erstes Wird der Name ausgehandelt.
 	 */
 	private boolean bereit;
 	private Spieler spieler;
