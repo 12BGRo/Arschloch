@@ -1,6 +1,8 @@
 
 public class Client {
-	
-	private
 
+	
+	 //Halt die Klappe Till! Und mach die Fahrstuhlmusik aus!
+	
+	
 }
