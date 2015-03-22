@@ -1,8 +1,17 @@
+import java.net.Socket;
 
-public class Client {
+
+public class Client implements Runnable {
 
 	
-	 //Halt die Klappe Till! Und mach die Fahrstuhlmusik aus!
-	jkjlkjljkllkjklkl
+	private Socket socket;
+
+	@Override
+	public void run() {
+	
+		
+		
+	}
+	
 	
 }

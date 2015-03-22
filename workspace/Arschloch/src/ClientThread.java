@@ -32,7 +32,7 @@ public class ClientThread extends Thread {
 			this.input = new ObjectInputStream(this.clientSocket.getInputStream());
 			this.output = new ObjectOutputStream(this.clientSocket.getOutputStream());
 		} catch (IOException e) {
-			// TODO Automatisch generierter Erfassungsblock
+			
 			e.printStackTrace();
 		}
 	}
