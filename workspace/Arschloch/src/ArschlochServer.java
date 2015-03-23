@@ -45,6 +45,7 @@ public class ArschlochServer implements Runnable{
 	 * Prueft, ob der Server voll ist (6 Spieler)
 	 * @return true, wenn 6 Spieler online sind
 	 */
+	
 	public boolean istVoll(){
 		return this.clients.size() == 6;
 	}
