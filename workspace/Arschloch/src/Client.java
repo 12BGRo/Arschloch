@@ -36,6 +36,26 @@ public class Client implements Runnable {
 	
 	}
 	
+	public String receive() throws ClassNotFoundException{
+		String message = null;
+		try {
+			message = this.input.readUTF();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return message;
+	}
+	
+	public void send(String message){
+		try {
+			this.output.writeUTF(message);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	
 	String getName(){
 		

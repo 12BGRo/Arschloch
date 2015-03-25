@@ -38,7 +38,7 @@ public class KartenDeck {
 		String[] art = new String[]{"Karo", "Pik", "Herz", "Kreuz"};
 		String[] name = new String[]{"Sieben", "Acht", "Neun", "Zehn", "Bube", "Dame", "König", "Ass"};
 		
-		//wird 4-mal ausgeführt
+		//wird 4-mal ausgefuehrt
 		for(int i=0;i<4;i++){
 			
 			//wird 8-mal ausgefuehrt 
