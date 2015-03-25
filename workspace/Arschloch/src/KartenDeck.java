@@ -9,8 +9,8 @@ public class KartenDeck {
 		this.mischen();
 	}
 	/**
-	 * Gibt eine Zahl aus dem karten Array zurück und setzt die Stelle,
-	 * welche zurückgegeben wurde gleich null.
+	 * Gibt eine Zahl aus dem karten Array zurueck und setzt die Stelle,
+	 * welche zurueckgegeben wurde gleich null.
 	 * @return
 	 */
 	public Spielkarte getKarte(){

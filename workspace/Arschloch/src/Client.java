@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -12,6 +13,7 @@ public class Client implements Runnable {
 	private ObjectOutputStream output;
 	private ObjectInputStream input;
 	private String playername;
+	private ArrayList<Spielkarte> clientKarten = new ArrayList<Spielkarte>();
 	
 	Scanner sc = new Scanner(System.in);
 	
@@ -77,7 +79,15 @@ public class Client implements Runnable {
 	@Override
 	public void run() {
 	
-		
+		try {
+			this.input.readObject().toString();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	

@@ -6,7 +6,7 @@ public class Rang {
 	/**
 	 * Konstruktor von Rang
 	 * @param rang String mit dem Rang. Erlaubt sind: "King", "Vieze", "Arsch", "ViezeArsch"
-	 * @throws RangGibtsNichException wird geworfen, wenn es den übergebenen Rang nicht gibt
+	 * @throws RangGibtsNichException wird geworfen, wenn es den uebergebenen Rang nicht gibt
 	 */
 	public Rang(String rang) throws RangGibtsNichException{
 		if (rang.equals("King") || rang.equals("Vieze") || rang.equals("Arsch") || rang.equals("ViezeArsch")){
@@ -24,7 +24,7 @@ public class Rang {
 	}
 	
 	/**
-	 * Gibt den Rang als String zurück
+	 * Gibt den Rang als String zurueck
 	 * @return String mit dem Rang
 	 */
 	public String getRang(){
@@ -32,7 +32,7 @@ public class Rang {
 	}
 	
 	/**
-	 * Gibt die ID des Ranges zurück:
+	 * Gibt die ID des Ranges zurueck:
 	 * Arsch = 0, ViezeArsch = 1, Vieze = 2, Koenig = 3
 	 * @return int mit der ID
 	 */
@@ -41,18 +41,18 @@ public class Rang {
 	}
 	
 	/**
-	 * Vergleicht den Rang mit dem übergebenen.
+	 * Vergleicht den Rang mit dem Uebergebenen.
 	 * @param rang der Rang, mit dem verglichen werden soll
-	 * @return false, wenn der übergebene Rang größer ist
+	 * @return false, wenn der uebergebene Rang groesser ist
 	 */
 	public boolean istHoeher(Rang rang){
 		return this.id > rang.getId();
 	}
 	
 	/**
-	 * Vergleicht den Rang mit dem übergebenen.
+	 * Vergleicht den Rang mit dem Uebergebenen.
 	 * @param rang der Rang, mit dem verglichen werden soll
-	 * @return false, wenn der übergebene Rang kleiner ist
+	 * @return false, wenn der Uebergebene Rang kleiner ist
 	 */
 	public boolean istNiedriger(Rang rang){
 		return this.id < rang.getId();

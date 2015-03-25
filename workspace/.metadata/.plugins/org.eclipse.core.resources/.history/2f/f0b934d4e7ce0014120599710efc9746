@@ -1,0 +1,11 @@
+import java.net.Socket;
+
+
+public class Client {
+
+	private Socket socket;
+	
+	 //Halt die Klappe Till! Und mach die Fahrstuhlmusik aus!
+	
+	
+}

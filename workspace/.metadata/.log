@@ -1,4 +1,4 @@
-!SESSION 2015-03-17 13:26:14.109 -----------------------------------------------
+!SESSION 2015-03-25 09:56:42.344 -----------------------------------------------
 eclipse.buildId=4.5.0.I20150203-1300
 java.version=1.8.0_40
 java.vendor=Oracle Corporation
@@ -6,172 +6,247 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
 Framework arguments:  -product org.eclipse.epp.package.dsl.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.dsl.product
 
-!ENTRY org.eclipse.core.resources 2 10035 2015-03-17 13:28:40.848
-!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+This is a continuation of log file C:\Users\Moritz\Arschloch\workspace\.metadata\.bak_0.log
+Created Time: 2015-03-25 10:46:54.893
 
-!ENTRY org.eclipse.egit.ui 2 0 2015-03-17 13:29:44.780
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!ENTRY org.eclipse.core.net 1 0 2015-03-25 10:46:54.899
+!MESSAGE System property http.proxyHost is set to proxy but should not be set.
 
-!ENTRY org.eclipse.egit.ui 2 0 2015-03-17 13:29:44.780
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Moritz'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2015-03-17 14:08:30.090 -----------------------------------------------
-eclipse.buildId=4.5.0.I20150203-1300
-java.version=1.8.0_40
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
-Framework arguments:  -product org.eclipse.epp.package.dsl.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.dsl.product
+!ENTRY org.eclipse.core.net 1 0 2015-03-25 10:46:54.903
+!MESSAGE System property http.proxyPort is set to 8080 but should not be set.
 
-!ENTRY org.eclipse.egit.ui 2 0 2015-03-17 14:08:47.243
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!ENTRY org.eclipse.core.net 1 0 2015-03-25 10:46:54.907
+!MESSAGE System property https.proxyHost is set to proxy but should not be set.
 
-!ENTRY org.eclipse.egit.ui 2 0 2015-03-17 14:08:47.243
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Moritz'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2015-03-17 17:41:32.717 -----------------------------------------------
-eclipse.buildId=4.4.2.M20150204-1700
-java.version=1.8.0_40
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+!ENTRY org.eclipse.core.net 1 0 2015-03-25 10:46:54.911
+!MESSAGE System property https.proxyPort is set to 8080 but should not be set.
 
-!ENTRY org.eclipse.e4.ui.workbench 4 0 2015-03-17 17:42:28.946
-!MESSAGE Unable to load class 'org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon' from bundle '353'
+!ENTRY org.eclipse.jdt.ui 4 10001 2015-03-25 10:46:54.917
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: java.io.IOException: Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:928)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1039)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:717)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:533)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:60)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:576)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.io.IOException: Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
+	at sun.reflect.GeneratedConstructorAccessor40.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.protocol.http.HttpURLConnection.getChainedException(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:862)
+	... 9 more
+Caused by: java.io.IOException: Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
+	at sun.net.www.protocol.http.HttpURLConnection.doTunneling(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at java.net.HttpURLConnection.getResponseCode(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getResponseCode(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:848)
+	... 9 more
+Caused by: java.io.IOException: Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
+	at sun.reflect.GeneratedConstructorAccessor40.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.protocol.http.HttpURLConnection.getChainedException(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:862)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1039)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:717)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:533)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:60)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:576)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.io.IOException: Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
+	at sun.net.www.protocol.http.HttpURLConnection.doTunneling(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at java.net.HttpURLConnection.getResponseCode(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getResponseCode(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:848)
+	... 9 more
+!SUBENTRY 1 org.eclipse.jdt.core 4 985 2015-03-25 10:46:54.917
+!MESSAGE Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
 !STACK 0
-java.lang.ClassNotFoundException: org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon cannot be found by org.eclipse.ui.ide.application_1.0.501.v20141111-1238
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
-	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
-	at java.lang.ClassLoader.loadClass(Unknown Source)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:102)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:73)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:50)
-	at org.eclipse.e4.ui.internal.workbench.swt.E4Application.createE4Workbench(E4Application.java:294)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:601)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+java.io.IOException: Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
+	at sun.reflect.GeneratedConstructorAccessor40.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.protocol.http.HttpURLConnection.getChainedException(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:862)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1039)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:717)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:533)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:60)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:576)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.io.IOException: Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
+	at sun.net.www.protocol.http.HttpURLConnection.doTunneling(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at java.net.HttpURLConnection.getResponseCode(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getResponseCode(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:848)
+	... 9 more
 
-!ENTRY org.eclipse.egit.ui 2 0 2015-03-17 17:42:42.077
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!ENTRY org.eclipse.core.net 1 0 2015-03-25 10:49:38.473
+!MESSAGE System property http.proxyHost is set to proxy but should not be set.
 
-!ENTRY org.eclipse.egit.ui 2 0 2015-03-17 17:42:42.078
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Moritz'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2015-03-17 22:36:02.615 -----------------------------------------------
-eclipse.buildId=4.4.2.M20150204-1700
-java.version=1.8.0_40
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+!ENTRY org.eclipse.core.net 1 0 2015-03-25 10:49:38.479
+!MESSAGE System property http.proxyPort is set to 8080 but should not be set.
 
-!ENTRY org.eclipse.e4.ui.workbench 4 0 2015-03-17 22:36:08.548
-!MESSAGE Unable to load class 'org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon' from bundle '353'
+!ENTRY org.eclipse.core.net 1 0 2015-03-25 10:49:38.484
+!MESSAGE System property https.proxyHost is set to proxy but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-25 10:49:38.488
+!MESSAGE System property https.proxyPort is set to 8080 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-25 10:49:38.492
+!MESSAGE System property http.proxyHost is set to proxy but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-25 10:49:38.497
+!MESSAGE System property http.proxyPort is set to 8080 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-25 10:49:38.501
+!MESSAGE System property https.proxyHost is set to proxy but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-25 10:49:38.505
+!MESSAGE System property https.proxyPort is set to 8080 but should not be set.
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2015-03-25 10:49:38.510
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: java.io.IOException: Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:928)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1039)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:717)
+	at org.eclipse.jdt.internal.core.ResolvedBinaryMethod.getAttachedJavadoc(ResolvedBinaryMethod.java:1)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:533)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:691)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:609)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:601)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:129)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:85)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
+Caused by: java.io.IOException: Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
+	at sun.reflect.GeneratedConstructorAccessor40.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.protocol.http.HttpURLConnection.getChainedException(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:862)
+	... 11 more
+Caused by: java.io.IOException: Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
+	at sun.net.www.protocol.http.HttpURLConnection.doTunneling(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at java.net.HttpURLConnection.getResponseCode(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getResponseCode(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:848)
+	... 11 more
+Caused by: java.io.IOException: Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
+	at sun.reflect.GeneratedConstructorAccessor40.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.protocol.http.HttpURLConnection.getChainedException(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:862)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1039)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:717)
+	at org.eclipse.jdt.internal.core.ResolvedBinaryMethod.getAttachedJavadoc(ResolvedBinaryMethod.java:1)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:533)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:691)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:609)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:601)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:129)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:85)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
+Caused by: java.io.IOException: Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
+	at sun.net.www.protocol.http.HttpURLConnection.doTunneling(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at java.net.HttpURLConnection.getResponseCode(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getResponseCode(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:848)
+	... 11 more
+!SUBENTRY 1 org.eclipse.jdt.core 4 985 2015-03-25 10:49:38.510
+!MESSAGE Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
 !STACK 0
-java.lang.ClassNotFoundException: org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon cannot be found by org.eclipse.ui.ide.application_1.0.501.v20141111-1238
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
-	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
-	at java.lang.ClassLoader.loadClass(Unknown Source)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:102)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:73)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:50)
-	at org.eclipse.e4.ui.internal.workbench.swt.E4Application.createE4Workbench(E4Application.java:294)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:601)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
-
-!ENTRY org.eclipse.egit.ui 2 0 2015-03-17 22:36:13.064
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.egit.ui 2 0 2015-03-17 22:36:13.065
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Moritz'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2015-03-20 10:01:51.376 -----------------------------------------------
-eclipse.buildId=4.5.0.I20150203-1300
-java.version=1.8.0_40
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
-Framework arguments:  -product org.eclipse.epp.package.dsl.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.dsl.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2015-03-20 10:02:38.947
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.egit.ui 2 0 2015-03-20 10:02:38.949
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Moritz'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+java.io.IOException: Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
+	at sun.reflect.GeneratedConstructorAccessor40.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.protocol.http.HttpURLConnection.getChainedException(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:862)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1039)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:717)
+	at org.eclipse.jdt.internal.core.ResolvedBinaryMethod.getAttachedJavadoc(ResolvedBinaryMethod.java:1)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:533)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:691)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:609)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:601)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:129)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:85)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
+Caused by: java.io.IOException: Unable to tunnel through proxy. Proxy returns "HTTP/1.0 407 Proxy Authentication Required"
+	at sun.net.www.protocol.http.HttpURLConnection.doTunneling(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at java.net.HttpURLConnection.getResponseCode(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getResponseCode(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:848)
+	... 11 more
