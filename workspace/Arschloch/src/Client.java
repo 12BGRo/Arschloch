@@ -28,37 +28,50 @@ public class Client implements Runnable {
 			e.printStackTrace();
 		}
 		
-		
-		do{	
-			playername = getName();
-			this.output.writeUTF(playername);	
+		//Sendet so oft einen Namen an den Client-Thread, bis er eine Bestaetigung erhaelt
+		try {
+			do{	
+				playername = getName();
+				this.output.writeUTF(playername);	
+			}
+			while(!receive().startsWith("+"));
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
-		while(!this.input.readUTF().equals("ACCEPTED"));
 		
 	
 	}
 	
+	/**
+	 * Liest eine vom Server empfangene Nachricht und
+	 * gibt die sie als String zurueck.
+	 * @param message Empfangene Nachricht
+	 */
 	public String receive() throws ClassNotFoundException{
 		String message = null;
 		try {
 			message = this.input.readUTF();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return message;
 	}
 	
+	
+	/**
+	 * Sendet die als String uebergebene Nachricht an den Server-Thread.
+	 * @param message Die Nachricht welche uebergeben werden soll als String
+	 */
 	public void send(String message){
 		try {
 			this.output.writeUTF(message);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
 	
+	//Fordert eine Namenseingabe vom Benutzer an
 	String getName(){
 		
 		String name = null;
@@ -67,7 +80,10 @@ public class Client implements Runnable {
 		return name;
 	}
 	
-	
+	/**
+	 * Sendet dem Client-Thread, ob der Client / Benutzer bereit ist oder nicht.
+	 * @param status true = bereit || false = nicht bereit
+	 */
 	void setBereitschaft(boolean status){
 		try {
 			this.output.writeBoolean(status);
@@ -76,18 +92,25 @@ public class Client implements Runnable {
 		}
 	}
 	
+	public void checkMessage(String command){
+		
+		
+	}
+	
 	@Override
 	public void run() {
-	
-		try {
-			this.input.readObject().toString();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+			String message = null;
+			try {
+				message = this.receive();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			checkMessage(message);
+			
+			
+		
+		
 		
 	}
 	

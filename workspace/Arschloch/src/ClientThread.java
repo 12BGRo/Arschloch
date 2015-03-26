@@ -58,7 +58,6 @@ public class ClientThread extends Thread {
 			this.output.writeObject(o);
 			this.output.flush();
 		} catch (IOException e) {
-			// TODO Automatisch generierter Erfassungsblock
 			e.printStackTrace();
 		}
 	}
@@ -72,7 +71,6 @@ public class ClientThread extends Thread {
 			try {
 				name = input.readUTF();
 			} catch (IOException e) {
-				// TODO Automatisch generierter Erfassungsblock
 				e.printStackTrace();
 			}
 			int anzahl = clients.size();
@@ -85,9 +83,10 @@ public class ClientThread extends Thread {
 			}
 			if(!gibtsSchon){
 				this.spieler.setName(name);
+				this.out("+ACCEPTED-Welcome "+name);
 			}
 			else{
-				this.out(new NameGibtsSchonException());
+				this.out(new NameGibtsSchonException("Diesen Namen gibt es bereits."));
 			}
 		}
 		while (gibtsSchon);
@@ -95,14 +94,15 @@ public class ClientThread extends Thread {
 		//warten, bis das bereit-Signal kommt
 		while (!this.bereit){
 			try {
-				if (input.readObject().equals("bereit"));
+				if (input.readObject().equals("bereit")){this.bereit = true;}
 			} catch (ClassNotFoundException e) {
-				// TODO Automatisch generierter Erfassungsblock
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Automatisch generierter Erfassungsblock
 				e.printStackTrace();
 			}
 		}
+		
+		
+		
 	}
 }

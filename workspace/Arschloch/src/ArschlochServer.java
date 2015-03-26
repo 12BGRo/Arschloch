@@ -16,6 +16,7 @@ public class ArschlochServer implements Runnable{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 	/**
@@ -52,7 +53,7 @@ public class ArschlochServer implements Runnable{
 	
 	@Override
 	public void run() {
-		while (!(this.sindAlleBereit() && this.gibtsGenugSpieler())){
+		while (!(this.sindAlleBereit()) || !(this.gibtsGenugSpieler())){
 			Socket clientSocket = null;
 			try {
 				clientSocket = this.serverSocket.accept();
@@ -62,5 +63,7 @@ public class ArschlochServer implements Runnable{
 			}
 			this.clients.add(new ClientThread(this.clients, clientSocket));
 		}
+		verwaltung = new Verwaltung(clients.size());
+		verwaltung.austeilen();
 	}
 }
