@@ -18,6 +18,7 @@ public class ClientThread extends Thread {
 	private ObjectInputStream input;
 	private ObjectOutputStream output;
 	private Socket clientSocket;
+	boolean gibtsSchon = false;
 	
 	/**
 	 * Konstruktor des ClientThreads. 
@@ -64,7 +65,8 @@ public class ClientThread extends Thread {
 	
 	public void run(){
 		//als erstes den Namen aushandeln
-		boolean gibtsSchon = false;
+		this.bereit = false;
+		
 		do {
 			gibtsSchon = false;
 			String name = null;
@@ -83,7 +85,7 @@ public class ClientThread extends Thread {
 			}
 			if(!gibtsSchon){
 				this.spieler.setName(name);
-				this.out("+ACCEPTED-Welcome "+name);
+				this.out("~ACCEPTED-Welcome "+name);
 			}
 			else{
 				this.out(new NameGibtsSchonException("Diesen Namen gibt es bereits."));
@@ -94,10 +96,9 @@ public class ClientThread extends Thread {
 		//warten, bis das bereit-Signal kommt
 		while (!this.bereit){
 			try {
-				if (input.readObject().equals("bereit")){this.bereit = true;}
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
+				this.out("#");
+				if (input.readBoolean() == true){this.bereit = true;}
+			}  catch (IOException e) {
 				e.printStackTrace();
 			}
 		}

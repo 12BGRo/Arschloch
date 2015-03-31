@@ -1,0 +1,142 @@
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class Client implements Runnable {
+
+	
+	private Socket socket;
+	private ObjectOutputStream output;
+	private ObjectInputStream input;
+	private String playername;
+	private ArrayList<Spielkarte> clientKarten = new ArrayList<Spielkarte>();
+	private boolean bereitschaft = false;
+	
+	Scanner sc = new Scanner(System.in);
+	
+
+	public Client (Socket socket) throws IOException{
+		
+		this.socket = socket;
+		try {
+			this.output = new ObjectOutputStream(this.socket.getOutputStream());
+			this.input = new ObjectInputStream(this.socket.getInputStream());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		//Sendet so oft einen Namen an den Client-Thread, bis er eine Bestaetigung erhaelt
+		try {
+			do{	
+				playername = getName();
+				this.output.writeUTF(playername);	
+			}
+			while(!receive().startsWith("+"));
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+	
+	}
+	
+	/**
+	 * Liest eine vom Server empfangene Nachricht und
+	 * gibt die sie als String zurueck.
+	 * @param message Empfangene Nachricht
+	 */
+	public String receive() throws ClassNotFoundException{
+		String message = null;
+		try {
+			message = this.input.readUTF();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return message;
+	}
+	
+	
+	/**
+	 * Sendet die als String uebergebene Nachricht an den Server-Thread.
+	 * @param message Die Nachricht welche uebergeben werden soll als String
+	 */
+	public void send(Object message){
+		try {
+			this.output.writeObject(message);;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	//Fordert eine Namenseingabe vom Benutzer an
+	public String getName(){
+		
+		String name = null;
+		System.out.println("Bitte gib deinen Spieler-Namen ein:");
+		name = sc.next();
+		return name;
+	}
+	
+	public boolean getBereitschaft(){
+		if(!bereitschaft){
+		System.out.println("Sind sie bereit?");
+		if(sc.nextLine().equalsIgnoreCase("ja"));{
+			this.bereitschaft = true;
+		}
+		}
+		return this.bereitschaft;
+	}
+	
+	
+	/**
+	 * Sendet dem Client-Thread, ob der Client / Benutzer bereit ist oder nicht.
+	 * @param status true = bereit || false = nicht bereit
+	 */
+	void setBereitschaft(boolean status){
+		try {
+			this.output.writeBoolean(status);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	/**
+	 * Prueft welcher Tag am Anfang der Nachricht steht und 
+	 * @param command
+	 */
+	public void checkMessage(String command){
+		
+		if(command.startsWith("+")){
+			
+		}
+		
+		if(command.startsWith("#")){
+			send(this.getBereitschaft());
+		}
+		
+	}
+	
+	@Override
+	public void run() {
+		
+			String message = null;
+			try {
+				message = this.receive();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			checkMessage(message);
+			
+			
+		
+		
+		
+	}
+	
+	
+}
