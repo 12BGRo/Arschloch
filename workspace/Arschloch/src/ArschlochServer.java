@@ -8,7 +8,8 @@ public class ArschlochServer implements Runnable{
 	private ArrayList<ClientThread> clients;
 	private Verwaltung verwaltung;
 	private ServerSocket serverSocket;
-	
+	private boolean gameRunning = false;
+
 	public ArschlochServer(){
 		this.clients = new ArrayList<ClientThread>();
 		try {
@@ -16,7 +17,7 @@ public class ArschlochServer implements Runnable{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	/**
@@ -26,7 +27,7 @@ public class ArschlochServer implements Runnable{
 	public boolean gibtsGenugSpieler(){
 		return this.clients.size() < 3;
 	}
-	
+
 	/**
 	 * Prueft, ob alle Spieler bereit zum Starten sind
 	 * @return true, wenn alle bereit sind
@@ -39,31 +40,33 @@ public class ArschlochServer implements Runnable{
 			}
 		}
 		return bereit;
-		
+
 	}
-	
+
 	/**
 	 * Prueft, ob der Server voll ist (6 Spieler)
 	 * @return true, wenn 6 Spieler online sind
 	 */
-	
+
 	public boolean istVoll(){
 		return this.clients.size() == 6;
 	}
-	
+
 	@Override
 	public void run() {
-		while (!(this.sindAlleBereit()) || !(this.gibtsGenugSpieler())){
-			Socket clientSocket = null;
-			try {
-				clientSocket = this.serverSocket.accept();
-			} catch (IOException e) {
-				
-				e.printStackTrace();
+		while(!gameRunning){
+			while (!(this.sindAlleBereit()) || !(this.gibtsGenugSpieler())){
+				Socket clientSocket = null;
+				try {
+					clientSocket = this.serverSocket.accept();
+				} catch (IOException e) {
+
+					e.printStackTrace();
+				}
+				this.clients.add(new ClientThread(clientSocket, clients));
 			}
-			this.clients.add(new ClientThread(this.clients, clientSocket));
+			verwaltung = new Verwaltung(clients.size());
+			verwaltung.austeilen();
 		}
-		verwaltung = new Verwaltung(clients.size());
-		verwaltung.austeilen();
 	}
 }

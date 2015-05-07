@@ -39,10 +39,14 @@ public class Client implements Runnable {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+		start();
 	
 	}
 	
+	private void start() {
+		this.run();		
+	}
+
 	/**
 	 * Liest eine vom Server empfangene Nachricht und
 	 * gibt diese als String zurueck.
@@ -113,8 +117,10 @@ public class Client implements Runnable {
 	 * "^" = Sagt dem Client, dass nun die Karten auf dem Stapel folgen.
 	 * </pre>
 	 * @param command
+	 * @throws IOException 
+	 * @throws ClassNotFoundException 
 	 */
-	public void checkMessage(String command){
+	public void checkMessage(String command) throws ClassNotFoundException, IOException{
 		
 		if(command.startsWith("+")){
 			send(this.getName());
@@ -138,7 +144,7 @@ public class Client implements Runnable {
 		}
 		
 		if(command.startsWith("*")){
-			this.clientKarten.add(this.input.readObject());
+			this.clientKarten.add((Spielkarte) this.input.readObject());
 		}
 		
 		if(command.startsWith("^")){
@@ -155,8 +161,17 @@ public class Client implements Runnable {
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-			checkMessage(message);
-			
+			if(message!= null){
+			try {
+				checkMessage(message);
+			} catch (ClassNotFoundException e) {
+				
+				e.printStackTrace();
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+			}
 			
 		
 		

@@ -23,8 +23,8 @@ public class Spieler {
 	/**
 	 * soll aufgerufen werden, wenn der Spieler eine (oder mehrer) Karten aus 
 	 * seiner Hand ablegt. Die Karten werden in einem KartenContainer zusammengefasst.
-	 * Die Mathode prueft, ob der Spieler alle uebergebenen Karten hat, wenn nicht, wird eine 
-	 * SpielerHatDieKarteNichtExection geworfen. Die ablegelgten Karten werden aus den handkarten geloescht.
+	 * Die Methode prueft, ob der Spieler alle uebergebenen Karten hat, wenn nicht, wird eine 
+	 * SpielerHatDieKarteNichtExection geworfen. Die abgelegten Karten werden aus den Handkarten geloescht.
 	 * @param karten KartenContainer mit den Karten, die ablegt werden sollen.
 	 * @return die abgelegten Karten
 	 * @throws SpielerHatDieKartenNichtException 

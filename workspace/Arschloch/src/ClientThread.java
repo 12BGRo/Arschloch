@@ -9,12 +9,12 @@ import java.util.ArrayList;
 public class ClientThread extends Thread {
 	/**
 	 * Der ClientThread, der mit dem jeweiligen Client kommuniziert.
-	 * Als erstes Wird der Name ausgehandelt; Dazu schreibt der Client solange
+	 * Als erstes wird der Name ausgehandelt; Dazu schreibt der Client solange
 	 * Strings auf die socket, wie er keine NameGibtsSchonException zurueck bekommt
 	 */
 	private boolean bereit;
 	private Spieler spieler;
-	private ArrayList<ClientThread> clients;
+	private ArrayList<ClientThread> clients; 
 	private ObjectInputStream input;
 	private ObjectOutputStream output;
 	private Socket clientSocket;
@@ -26,7 +26,7 @@ public class ClientThread extends Thread {
 	 * @param clientSocket die socket zum kommunizieren
 	 */
 	
-	public ClientThread(ArrayList<ClientThread> clients, Socket clientSocket){
+	public ClientThread(Socket clientSocket, ArrayList<ClientThread> clients){
 		this.clients = clients;
 		this.clientSocket = clientSocket;
 		try {
@@ -69,13 +69,14 @@ public class ClientThread extends Thread {
 		
 		do {
 			gibtsSchon = false;
-			String name = null;
+			String name = "";
 			try {
+				this.out("+");
 				name = input.readUTF();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			int anzahl = clients.size();
+			
 			for (int i = 0; i<clients.size()-1; i++){
 				//nicht den letzten abfragen, der hat ja noch keinen Namen
 				ClientThread th = clients.get(i);

@@ -1,5 +1,7 @@
+import java.io.Serializable;
 
-public class Spielkarte {
+
+public class Spielkarte implements Serializable {
 	
 	private String name;
 	private int farbe;
