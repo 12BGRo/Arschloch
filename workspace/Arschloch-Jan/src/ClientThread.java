@@ -45,6 +45,8 @@ public class ClientThread extends Thread {
 		return this.spieler.istBereit();
 	}
 
+	
+	
 	/**
 	 * Gibt den Namen des Spielers, der dem Thread zugeordnet ist, zurueck
 	 * @return name des Spielers
@@ -65,7 +67,6 @@ public class ClientThread extends Thread {
 			gibtsSchon = false;
 			String name = "";
 			try {
-				this.out("+");
 				name = input.readLine();
 			} catch (IOException e) {
 				e.printStackTrace();

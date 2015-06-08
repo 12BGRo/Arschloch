@@ -1,0 +1,139 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class Client implements Runnable {
+
+
+	private Socket socket;
+	private PrintWriter output;
+	private BufferedReader input;
+	private Spieler spieler;
+	private ArrayList<Spielkarte> clientKarten = new ArrayList<Spielkarte>();
+
+	Scanner sc = new Scanner(System.in);
+
+	public Client (Socket socket) {
+
+		this.socket = socket;
+		try {
+			this.output = new PrintWriter(this.socket.getOutputStream());
+			this.input = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		//Sendet so oft einen Namen an den Client-Thread, bis er eine Bestaetigung erhaelt
+		try {
+			do{	
+				this.output.write(this.getName());	
+			}
+			while(this.input.readLine().equals("-"));
+		} catch (IOException e) {
+			// TODO Automatisch generierter Erfassungsblock
+			e.printStackTrace();
+		}
+
+	}
+
+
+	/**
+	 * Sendet die als String uebergebene Nachricht an den Server-Thread.
+	 * @param message Die Nachricht welche uebergeben werden soll als Object
+	 */
+	private void out(String cmd){
+		this.output.write(cmd);
+	}
+
+	/**
+	 * Fragt den Namen vom Benutzer ab.
+	 * @return Name als String
+	 */
+	public String getName(){
+		String name = null;
+		System.out.println("Bitte gib deinen Spieler-Namen ein:");
+		name = sc.next();
+		return name;
+	}
+
+
+
+	/**
+	 * <pre>Prueft welcher Tag am Anfang der Nachricht steht und fuehrt dann die entsprechenden Methoden aus.
+	 * 
+	 * "~" = Gibt die Nachricht in die Console / Text Area aus.
+	 * "-" = Weisst den Client an die Verbindung zu trennen.
+	 * "#" = Fragt die Bereitschaft des Spielers an.
+	 * "+" = Fordert den Namen des Spielers an.
+	 * "*" = Sagt dem Client, dass er nun die Karten erhaelt.
+	 * "^" = Sagt dem Client, dass nun die Karten auf dem Stapel folgen.
+	 * </pre>
+	 * @param command
+	 * @throws IOException 
+	 * @throws ClassNotFoundException 
+	 */
+	public void checkMessage(String command) throws ClassNotFoundException, IOException{
+
+		if(command.startsWith("+")){
+			send(this.getName());
+		}
+
+		if(command.startsWith("#")){
+			send(this.getBereitschaft());
+		}
+
+		if(command.startsWith("-")){
+			this.send("Bye");
+			try {
+				this.socket.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		if(command.startsWith("~")){
+			System.out.println(command);
+		}
+
+		if(command.startsWith("*")){
+			this.clientKarten.add((Spielkarte) this.input.readObject());
+		}
+
+		if(command.startsWith("^")){
+
+		}
+	}
+
+	@Override
+	public void run() {
+
+		String message = null;
+		try {
+			message = this.receive();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		if(message!= null){
+			try {
+				checkMessage(message);
+			} catch (ClassNotFoundException e) {
+
+				e.printStackTrace();
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+		}
+
+
+
+
+	}
+
+
+}

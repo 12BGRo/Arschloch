@@ -1,0 +1,90 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class Client implements Runnable {
+
+
+	private Socket socket;
+	private PrintWriter output;
+	private BufferedReader input;
+	private Spieler spieler;
+	private ArrayList<Spielkarte> clientKarten = new ArrayList<Spielkarte>();
+
+	Scanner sc = new Scanner(System.in);
+
+	public Client (Socket socket) {
+
+		this.socket = socket;
+		try {
+			this.output = new PrintWriter(this.socket.getOutputStream());
+			this.input = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		//Sendet so oft einen Namen an den Client-Thread, bis er eine Bestaetigung erhaelt
+		try {
+			do{	
+				this.output.write(this.frageName());	
+			}
+			while(this.input.readLine().equals("-"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+
+	/**
+	 * Sendet die als String uebergebene Nachricht an den Server-Thread.
+	 * @param message Die Nachricht welche uebergeben werden soll als Object
+	 */
+	private void out(String cmd){
+		this.output.write(cmd);
+	}
+
+	private String in(){
+		try {
+			return this.input.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/**
+	 * Fragt den Namen vom Benutzer ab.
+	 * @return Name als String
+	 */
+	private String frageName(){
+		String name = null;
+		System.out.println("Bitte gib deinen Spieler-Namen ein:");
+		name = sc.next();
+		return name;
+	}
+
+	@Override
+	public void run() {
+		//Hallo ausgeben
+		System.out.println("Dein Name is: " + this.spieler.getName());
+		System.out.println("Wenn du bereit bist schreibe \"ok\".");
+		String ant = sc.next();
+		while (!ant.equals("ok")){
+			ant = sc.next();
+		}
+		String message = "";
+		do{
+			message = this.in();
+		
+		}while (message.equals("-quit"));
+
+	}
+
+
+}
